@@ -2,6 +2,8 @@
  * Create a list that holds all of your cards
  */
 let cardList = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt", "fa-cube", "fa-anchor", "fa-leaf", "fa-bicycle", "fa-diamond", "fa-bomb", "fa-leaf", "fa-bomb", "fa-bolt", "fa-bicycle", "fa-paper-plane-o", "fa-cube"]
+let moves = 0;
+let score = 0;
 
 /*
  * Display the cards on the page
@@ -28,13 +30,18 @@ function shuffle(array) {
 
 const reset = document.querySelector(".restart");
 const cards = document.getElementsByClassName("card");
+const movesShow = document.getElementsByClassName("moves")[0];
 reset.addEventListener("click", function () {
 
-    cardList = shuffle(cardList);
+    cardList = shuffle(cardList); // Shuffle the card list
+    /* Add classes to the elements from shuffled card list */
     for (let i = 0; i < cardList.length; i++) {
         let cardChild = cards[i].children[0];
         cardChild.className = "fa" + " " + cardList[i];
     }
+
+    movesShow.innerHTML = 0; // Sets the moves to 0
+    score = 0; // Sets the score to 0
 });
 
 /*
