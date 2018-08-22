@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-let cardList = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa - bolt", "fa-cube", "fa-anchor", "fa-leaf", "fa-bicycle", "fa-diamond", "fa-bomb", "fa-leaf", "fa-bomb", "fa-bolt", "fa-bicycle", "fa-paper-plane-o", "fa-cube"]
+let cardList = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt", "fa-cube", "fa-anchor", "fa-leaf", "fa-bicycle", "fa-diamond", "fa-bomb", "fa-leaf", "fa-bomb", "fa-bolt", "fa-bicycle", "fa-paper-plane-o", "fa-cube"]
 
 /*
  * Display the cards on the page
@@ -29,27 +29,12 @@ function shuffle(array) {
 const reset = document.querySelector(".restart");
 const cards = document.getElementsByClassName("card");
 reset.addEventListener("click", function () {
-    // console.log(cardList);
+
     cardList = shuffle(cardList);
-    // console.log(cardList);
-
-    console.log(cards);
-    console.log(cardList[3]);
-    console.log(cards[3].children[0]);
     for (let i = 0; i < cardList.length; i++) {
-        cards[i].children.classList.toggle("cardList[i]");
+        let cardChild = cards[i].children[0];
+        cardChild.className = "fa" + " " + cardList[i];
     }
-    // let i = 0;
-    // cards.forEach(function (element) {
-    //     console.log(element);
-    // });
-
-
-    // cards.forEach(function (element) {
-    //     element.children.classList.toggle(cardList[i]);
-    //     i++;
-    // });
-
 });
 
 /*
