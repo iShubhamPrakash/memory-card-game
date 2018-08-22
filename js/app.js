@@ -1,7 +1,7 @@
 /*
  * Create a list that holds all of your cards
  */
-
+let cardList = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-leaf", "fa-bicycle", "fa-diamond", "fa-bomb", "fa-bolt", "fa-bicycle", "fa-paper-plane-o", "fa-cube"]
 
 /*
  * Display the cards on the page
@@ -26,6 +26,17 @@ function shuffle(array) {
     return array;
 }
 
+const reset = document.querySelector(".restart");
+const cards = document.getElementsByClassName("card");
+reset.addEventListener("click", function () {
+    console.log(cardList);
+    cardList = shuffle(cardList);
+    console.log(cardList);
+    whle(card.length) {
+        card.children.
+    }
+
+});
 
 /*
  * set up the event listener for a card. If a card is clicked:
