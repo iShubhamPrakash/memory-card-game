@@ -1,9 +1,9 @@
-/*
- * Create a list that holds all of your cards
- */
+/* A list that holds all of the cards */
 let cardList = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt", "fa-cube", "fa-anchor", "fa-leaf", "fa-bicycle", "fa-diamond", "fa-bomb", "fa-leaf", "fa-bomb", "fa-bolt", "fa-bicycle", "fa-paper-plane-o", "fa-cube"]
-let moves = 0;
-let score = 0;
+
+let openCard = []; //To store the open card list
+let moves = 0; //To store the no of moves
+let score = 0; //To store the score
 
 /*
  * Display the cards on the page
@@ -31,18 +31,24 @@ function shuffle(array) {
 const reset = document.querySelector(".restart");
 const cards = document.getElementsByClassName("card");
 const movesShow = document.getElementsByClassName("moves")[0];
-reset.addEventListener("click", function () {
 
-    cardList = shuffle(cardList); // Shuffle the card list
-    /* Add classes to the elements from shuffled card list */
+/* Function to resets the game by setting score, time, moves to zero and reshuffeling the cards */
+function resetGame() {
+    cardList = shuffle(cardList); // To shuffle the card list
+
+    /* Add classes to the elements from shuffled card list to display the cards on the page */
     for (let i = 0; i < cardList.length; i++) {
         let cardChild = cards[i].children[0];
         cardChild.className = "fa" + " " + cardList[i];
     }
 
-    movesShow.innerHTML = 0; // Sets the moves to 0
     score = 0; // Sets the score to 0
-});
+    moves = 0; // Sets the moves to 0
+    movesShow.innerHTML = moves;
+}
+
+reset.addEventListener("click", resetGame);
+
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -54,3 +60,28 @@ reset.addEventListener("click", function () {
  *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
+
+const clickedCard = document.getElementsByClassName("deck")[0];
+
+clickedCard.addEventListener("click", onCardClick);
+
+function onCardClick() {
+    let card = event.target;
+    console.log(card.children[0].classList[1] + " Clicked");
+    if (!card.classList.contains(open))
+        displayCard(card);
+}
+
+/* displayCard function to flip and show card */
+function displayCard(card) {
+    card.classList.add("show");
+    if (openCard.length == 0 || openCard[openCard.length - 1] == card.children[0].classList[1]) {
+        console.log("added");
+        openCard.push(card.children[0].classList[1]);
+        card.classList.add("open");
+        console.log(openCard);
+    }
+
+
+
+}
