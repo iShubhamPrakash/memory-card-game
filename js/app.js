@@ -63,23 +63,27 @@ reset.addEventListener("click", resetGame);
 
 const clickedCard = document.getElementsByClassName("deck")[0];
 
-clickedCard.addEventListener("click", onCardClick);
-
-function onCardClick() {
+clickedCard.addEventListener("click", function () {
     let card = event.target;
+
     console.log(card.children[0].classList[1] + " Clicked");
-    if (!card.classList.contains(open))
+
+    if (!card.classList.contains("open"))
         displayCard(card);
-}
+});
+
+
 
 /* displayCard function to flip and show card */
 function displayCard(card) {
     card.classList.add("show");
-    if (openCard.length == 0 || openCard[openCard.length - 1] == card.children[0].classList[1]) {
+    console.log("Class list before opening=" + card.classList);
+
+    if (openCard.length == 0 || card.children[0].classList[1] == openCard[openCard.length - 1]) {
         console.log("added");
         openCard.push(card.children[0].classList[1]);
         card.classList.add("open");
-        console.log(openCard);
+        console.log("Class list after opening=" + card.classList);
     }
 
 
