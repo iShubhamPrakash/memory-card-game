@@ -11,10 +11,11 @@ let cardList = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt", "fa-cu
 let openCard = []; //To store the open card list
 let moves = 0; //To store the no of moves
 let score = 0; //To store the score
-const reset = document.querySelector(".restart"); //RESET button handeler
-const cards = document.getElementsByClassName("card"); //CARD element handeler
-const movesShow = document.getElementsByClassName("moves")[0]; //MOVES display handeler
-const clickedCard = document.getElementsByClassName("card"); //Selects all elements with class Card
+const reset = document.querySelector(".restart"); //Stores RESET button information
+const cards = document.getElementsByClassName("card"); //Stores CARD element information
+const movesShow = document.getElementsByClassName("moves")[0]; //Stores MOVES display information
+const allCards = document.getElementsByClassName("card"); //Selects all elements with class Card
+let previousCard; //stores the previously clicked card information
 
 // Shuffle function from http://stackoverflow.com/a/2450976 to shuffle card when reset
 function shuffle(array) {
@@ -32,62 +33,69 @@ function shuffle(array) {
     return array;
 }
 
+function setEventforClick() {
+    for (let i = 0; i < allCards.length; i++) {
+        allCards[i].addEventListener("click", flipCard);
+    }
+}
 /* Function to resets the game by setting score, time, moves to zero and reshuffeling the cards */
 function resetGame() {
+
     cardList = shuffle(cardList); // To shuffle the card list
+
     /* Add classes to the elements from shuffled card list to display the cards on the page */
     for (let i = 0; i < cardList.length; i++) {
         let cardChild = cards[i].children[0];
         cardChild.className = "fa" + " " + cardList[i];
     }
+
     score = 0; // Sets the score to 0
-    moves = 0; // Sets the moves to 0
-    movesShow.innerHTML = moves;
-    openCard = [];
+    moves = 0; // Sets the moves counter to 0
+    movesShow.innerHTML = moves; //Display the updated move count
+    openCard = []; //Empty the openCard list
+
     for (let j = 0; j < cards.length; j++) {
-        hideCard(cards[j]);
+        hideCard(cards[j]); //hide all the fliped card
     }
+    setEventforClick();
 }
 
 /* flipCard function to flip and show card */
 function flipCard() {
     let card = event.target;
-
     // console.log(card.children[0].classList[1] + " Clicked, moves=" + moves);
-
-    if (!card.classList.contains("open")) {
-        card.classList.add("open", "show");
+    if (card.classList.contains("open")) {
+        console.log("Card already open");
+    } else {
+        card.className = "card open show";
+        card.removeEventListener("click", flipCard);
         moves++;
         movesShow.innerHTML = moves;
-        console.log(card.children[0].classList[1] + " Clicked, moves=" + moves);
+        // console.log(card.children[0].classList[1] + " Clicked, moves=" + moves);
         // console.log("Class SHOW added, Class list of card element=" + card.classList);
         openCard.push(card.children[0].classList[1]);
-
-    } else {
-        console.log("Card already open");
+        previousCard = this;
     }
-
-    if (moves % 2 == 0) {
-        if (openCard[openCard.length - 1] == openCard[openCard.length - 2]) {
-            console.log("Card matched...");
-            card.classList.add("open", "match");
-        } else {
-            console.log("Card NOT matched...");
-            if (moves > 1) {
-                setInterval(alert("Hiding..."), 4000);
-                hideCard(card);
-
-            }
-
-        }
-    }
+    // if (moves % 2 == 0 && openCard.length != 0) {
+    //     if (openCard[openCard.length - 1] == openCard[openCard.length - 2]) {
+    //         console.log("Card matched...");
+    //         // card.classList.add("open", "match");
+    //     } else {
+    //         console.log("Card NOT matched...");
+    //         hideCard(card);
+    //         hideCard(previousCard);
+    //     }
+    // }
 
     console.log(openCard + "\n" + card.classList);
 }
 
+
+
 /*hideCard Function to flip back and hide the card */
 function hideCard(c) {
-    c.classList.remove("open", "show", "match");
+    c.className = "card";
+    c.addEventListener("click", flipCard);
 }
 
 /*
@@ -102,10 +110,13 @@ function hideCard(c) {
  */
 
 
+
+/****************************************
+         PROGRAM STARTS HERE
+****************************************/
+
 /*When user clock reset button, call resetGame fuction*/
 reset.addEventListener("click", resetGame);
 
 /* Setting event listener for click to every cards */
-for (let i = 0; i < clickedCard.length; i++) {
-    clickedCard[i].addEventListener("click", flipCard);
-}
+setEventforClick();
