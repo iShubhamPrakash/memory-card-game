@@ -4,19 +4,16 @@
 <head>
   <meta charset="utf-8">
   <title>Shubham's Memory Game</title>
-  <meta name="description" content="">
+  <meta name="description" content="Shubham's Memory card game">
   <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
   <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Coda">
   <link rel="stylesheet" href="css/app.css">
 </head>
 
 <body>
-  <div class="instruction-container">
-    <!-- <h2>Instructions</h2> -->
-  </div>
   <div class="container">
     <header>
-      <h1>Shubham's Memory Game</h1>
+      <h1 class="heading">Shubham's Memory Game</h1>
     </header>
     <section class="score-panel">
       <ul class="stars">
@@ -88,7 +85,27 @@
       </li>
     </ul>
   </div>
-  <script src="js/app.js"></script>
+
+  <div class="instruction-container">
+    <h1 class="heading">How The Game Works</h1>
+    <p>The game board consists of sixteen "cards" arranged in a grid. The deck is made up of eight different pairs of
+      cards, each with different symbols on one side. The cards are arranged randomly on the grid with the symbol face
+      down.</p>
+    <p><b>The gameplay rules are very simple:</b><i> Flip over two hidden cards at a time to locate the ones that
+        match!</i></p>
+
+    <b>Each turn:</b>
+    <ul>
+      <li>The player flips one card over to reveal its underlying symbol.</li>
+      <li>he player then turns over a second card, trying to find the corresponding card with the same symbol.</li>
+      <li> If the cards match, both cards stay flipped over.</li>
+      <li>If the cards do not match, both cards are flipped face down.</li>
+    </ul>
+
+    <p><b>The game ends once all cards have been correctly matched.</b></p>
+
+    <footer class="footer">Made with <i class="fa fa-heart"></i> by Shubham</footer>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

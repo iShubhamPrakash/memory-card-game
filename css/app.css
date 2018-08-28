@@ -17,7 +17,8 @@ body {
 }
 
 body {
-  background: #ffffff url('../img/geometry2.png');
+  /* background-color: #17181a; */
+  background: #fffbfb url('../img/geometry2.png');
   /* Background pattern from Subtle Patterns */
   font-family: 'Coda', cursive;
 }
@@ -29,9 +30,24 @@ body {
   flex-direction: column;
 }
 
-h1 {
+.instruction-container {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.2em;
+}
+
+.heading {
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
+  text-align: center;
+  font-size: 3em;
+}
+
+.footer {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  padding: 1.5em;
 }
 
 /*
