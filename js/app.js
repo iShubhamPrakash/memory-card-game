@@ -15,7 +15,8 @@ const reset = document.querySelector(".restart"); //Stores RESET button informat
 const cards = document.getElementsByClassName("card"); //Stores CARD element information
 const movesShow = document.getElementsByClassName("moves")[0]; //Stores MOVES display information
 const allCards = document.getElementsByClassName("card"); //Selects all elements with class Card
-let previousCard; //stores the previously clicked card information
+let previousCard; //stores the previously clicked card 
+let currentCard; //stores the current clicked card
 
 // Shuffle function from http://stackoverflow.com/a/2450976 to shuffle card when reset
 function shuffle(array) {
@@ -63,31 +64,43 @@ function resetGame() {
 /* flipCard function to flip and show card */
 function flipCard() {
     let card = event.target;
-    // console.log(card.children[0].classList[1] + " Clicked, moves=" + moves);
-    if (card.classList.contains("open")) {
-        console.log("Card already open");
-    } else {
+    if (card.tagName == "LI") {
         card.className = "card open show";
-        card.removeEventListener("click", flipCard);
-        moves++;
-        movesShow.innerHTML = moves;
-        // console.log(card.children[0].classList[1] + " Clicked, moves=" + moves);
-        // console.log("Class SHOW added, Class list of card element=" + card.classList);
         openCard.push(card.children[0].classList[1]);
-        previousCard = this;
-    }
-    // if (moves % 2 == 0 && openCard.length != 0) {
-    //     if (openCard[openCard.length - 1] == openCard[openCard.length - 2]) {
-    //         console.log("Card matched...");
-    //         // card.classList.add("open", "match");
-    //     } else {
-    //         console.log("Card NOT matched...");
-    //         hideCard(card);
-    //         hideCard(previousCard);
-    //     }
-    // }
+        card.removeEventListener("click", flipCard);
 
-    console.log(openCard + "\n" + card.classList);
+        if (openCard.length % 2) {
+            card.id = "card1";
+            console.log("card1 set");
+        } else {
+            card.id = "card2";
+            console.log("card2 set");
+        }
+
+        console.log(this);
+
+        if (openCard.length % 2 == 0 && openCard.length != 0) {
+            if (openCard[openCard.length - 1] == openCard[openCard.length - 2]) {
+                console.log("Card matched...");
+                // card.classList.add("open", "match");
+            } else {
+                console.log("Card NOT matched...");
+                setTimeout(function () {
+                    previousCard = document.getElementById("card1");
+                    currentCard = document.getElementById("card2");
+                    previousCard.className = "card";
+                    currentCard.className = "card";
+                    previousCard.id = "";
+                    currentCard.id = "";
+                    setEventforClick(previousCard);
+                    setEventforClick(currentCard);
+                }, 500);
+
+            }
+        }
+
+    }
+    // console.log(openCard + "\n" + card.classList);
 }
 
 
@@ -98,6 +111,10 @@ function hideCard(c) {
     c.addEventListener("click", flipCard);
 }
 
+function incrementMoveCount() {
+    moves++;
+    movesShow.innerHTML = moves;
+}
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
