@@ -80,20 +80,28 @@ function flipCard() {
         console.log(this);
 
         if (openCard.length % 2 == 0 && openCard.length != 0) {
+            previousCard = document.getElementById("card1");
+            currentCard = document.getElementById("card2");
+
             if (openCard[openCard.length - 1] == openCard[openCard.length - 2]) {
                 console.log("Card matched...");
-                // card.classList.add("open", "match");
+                previousCard.id = "";
+                currentCard.id = "";
+                previousCard.className = "card open show match";
+                currentCard.className = "card open show match";
             } else {
                 console.log("Card NOT matched...");
+                previousCard.className = "card show wrong";
+                currentCard.className = "card show wrong";
                 setTimeout(function () {
-                    previousCard = document.getElementById("card1");
-                    currentCard = document.getElementById("card2");
                     previousCard.className = "card";
                     currentCard.className = "card";
                     previousCard.id = "";
                     currentCard.id = "";
                     setEventforClick(previousCard);
                     setEventforClick(currentCard);
+                    openCard.pop();
+                    openCard.pop();
                 }, 500);
 
             }

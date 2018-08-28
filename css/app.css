@@ -37,7 +37,6 @@ h1 {
 /*
  * Styles for the Score Panel
  */
-
 .score-panel {
   text-align: left;
   width: 345px;
@@ -64,7 +63,6 @@ h1 {
 /*
  * Styles for the deck of cards
  */
-
 .deck {
   width: 660px;
   min-height: 680px;
@@ -106,5 +104,11 @@ h1 {
 .deck .card.match {
   cursor: default;
   background: #02ccba;
+  font-size: 33px;
+}
+
+.card.wrong {
+  cursor: default;
+  background: #ee0707;
   font-size: 33px;
 }
