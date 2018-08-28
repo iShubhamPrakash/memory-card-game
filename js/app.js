@@ -49,7 +49,7 @@ function resetGame() {
 
     hideCards = document.getElementsByClassName("card");
     for (let j = 0; j < hideCards.length; j++) {
-        console.log(hideCards[j].classList.remove("open", "show", "match"));
+        hideCard(hideCards[j]);
     }
 }
 
@@ -81,9 +81,14 @@ function flipCard() {
     console.log(card.children[0].classList[1] + " Clicked");
     if (!card.classList.contains("open")) {
         card.classList.add("open");
+        moves++;
+        movesShow.innerHTML = moves;
         // console.log("Class SHOW added, Class list of card element=" + card.classList);
         openCard.push(card.children[0].classList[1]);
     }
 
+}
 
+function hideCard(c) {
+    c.classList.remove("open", "show", "match");
 }
