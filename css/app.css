@@ -151,14 +151,14 @@ body {
 }
 
 .game-over {
-  width: 50%;
+  width: 65%;
   margin-left: auto;
   margin-right: auto;
-  margin: 10% auto auto;
+  margin: 15% auto;
   font-size: 1.2em;
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.71);
   border: 0px solid #000000;
   background-color: #fff;
-  padding: 1.2em;
+  padding: 1.5em;
 }
