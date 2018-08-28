@@ -45,6 +45,12 @@ function resetGame() {
     score = 0; // Sets the score to 0
     moves = 0; // Sets the moves to 0
     movesShow.innerHTML = moves;
+    openCard = [];
+
+    hideCards = document.getElementsByClassName("card");
+    for (let j = 0; j < hideCards.length; j++) {
+        console.log(hideCards[j].classList.remove("open", "show", "match"));
+    }
 }
 
 reset.addEventListener("click", resetGame);
@@ -61,31 +67,23 @@ reset.addEventListener("click", resetGame);
  *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
  */
 
-const clickedCard = document.getElementsByClassName("deck")[0];
+const clickedCard = document.getElementsByClassName("card");
+/* Setting event listener for click to every cards */
+for (let i = 0; i < clickedCard.length; i++) {
+    clickedCard[i].addEventListener("click", flipCard);
+}
 
-clickedCard.addEventListener("click", function () {
+
+/* flipCard function to flip and show card */
+function flipCard() {
     let card = event.target;
-
-    console.log(card.children[0].classList[1] + " Clicked");
-
-    if (!card.classList.contains("open"))
-        displayCard(card);
-});
-
-
-
-/* displayCard function to flip and show card */
-function displayCard(card) {
     card.classList.add("show");
-    console.log("Class list before opening=" + card.classList);
-
-    if (openCard.length == 0 || card.children[0].classList[1] == openCard[openCard.length - 1]) {
-        console.log("added");
-        openCard.push(card.children[0].classList[1]);
+    console.log(card.children[0].classList[1] + " Clicked");
+    if (!card.classList.contains("open")) {
         card.classList.add("open");
-        console.log("Class list after opening=" + card.classList);
+        // console.log("Class SHOW added, Class list of card element=" + card.classList);
+        openCard.push(card.children[0].classList[1]);
     }
-
 
 
 }
