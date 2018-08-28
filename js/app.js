@@ -85,12 +85,14 @@ function flipCard() {
 
             if (openCard[openCard.length - 1] == openCard[openCard.length - 2]) {
                 console.log("Card matched...");
+                incrementMoveCount();
                 previousCard.id = "";
                 currentCard.id = "";
                 previousCard.className = "card open show match";
                 currentCard.className = "card open show match";
             } else {
                 console.log("Card NOT matched...");
+                incrementMoveCount();
                 previousCard.className = "card show wrong";
                 currentCard.className = "card show wrong";
                 setTimeout(function () {
