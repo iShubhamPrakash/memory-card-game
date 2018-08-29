@@ -14,8 +14,10 @@ const reset = document.querySelector(".restart"); //Stores RESET button informat
 const cards = document.getElementsByClassName("card"); //Stores CARD element information
 const movesShow = document.getElementsByClassName("moves")[0]; //Stores MOVES display information
 const allCards = document.getElementsByClassName("card"); //Selects all elements with class Card
+const startButton = document.getElementsByClassName("start-game")[0]; //for start button
 let previousCard; //stores the previously clicked card 
 let currentCard; //stores the current clicked card
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976 to shuffle card when reset
 function shuffle(array) {
@@ -33,6 +35,12 @@ function shuffle(array) {
     return array;
 }
 
+
+/*Start of the game */
+startButton.addEventListener("click", function () {
+    const popup = document.getElementsByClassName("start-popup")[0];
+    popup.classList.add("hide-popup");
+});
 /*When user clock reset button, call resetGame fuction*/
 reset.addEventListener("click", resetGame);
 

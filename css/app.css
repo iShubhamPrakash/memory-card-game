@@ -35,8 +35,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   font-size: 1.2em;
-  font-family: 'M PLUS Rounded 1c',
-    sans-serif;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.71);
   border: 0px solid #000;
@@ -59,7 +58,8 @@ body {
   box-shadow: 0px 10px 14px -7px #276873;
   background-color: #599bb3;
   border-radius: 8px;
-  display: inline-block;
+  display: block;
+  margin: 0 auto;
   cursor: pointer;
   color: #fff;
   font-family: Arial;
@@ -165,7 +165,6 @@ body {
 }
 
 .popup {
-  /* display: none; */
   position: fixed;
   z-index: 1;
   left: 0;
@@ -184,9 +183,12 @@ body {
   margin: 5% auto;
   font-size: 1.2em;
   border-radius: 10px 10px 10px 10px;
-  border: 5px groove #00bbff;
   box-shadow: 0px 0px 16px 1px rgba(0, 0, 0, 0.71);
   border: 0px solid #000000;
   background-color: #fff;
   padding: 1.5em;
+}
+
+.hide-popup {
+  display: none;
 }
