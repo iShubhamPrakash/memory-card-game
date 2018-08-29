@@ -15,6 +15,7 @@ const cards = document.getElementsByClassName("card"); //Stores CARD element inf
 const movesShow = document.getElementsByClassName("moves")[0]; //Stores MOVES display information
 const allCards = document.getElementsByClassName("card"); //Selects all elements with class Card
 const startButton = document.getElementsByClassName("start-game")[0]; //for start button
+const reStartButton = document.getElementsByClassName("reStartGame")[0]; //For restart button at the end of game
 let previousCard; //stores the previously clicked card 
 let currentCard; //stores the current clicked card
 
@@ -38,10 +39,18 @@ function shuffle(array) {
 
 /*Start of the game */
 startButton.addEventListener("click", function () {
-    const popup = document.getElementsByClassName("start-popup")[0];
-    popup.classList.add("hide-popup");
+    const popup1 = document.getElementsByClassName("start-popup")[0];
+    popup1.classList.add("hide-popup");
 });
-/*When user clock reset button, call resetGame fuction*/
+
+/*Restarting of game */
+reStartButton.addEventListener("click", function () {
+    const popup2 = document.getElementsByClassName("end-popup")[0];
+    popup2.classList.add("hide-popup");
+});
+
+
+/*When user click reset button, call resetGame fuction*/
 reset.addEventListener("click", resetGame);
 
 /* Setting event listener for click to every cards */
