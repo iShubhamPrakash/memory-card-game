@@ -124,7 +124,7 @@ body {
  */
 .score-panel {
   text-align: left;
-  width: 345px;
+  width: 600px;
   margin-bottom: 10px;
 }
 
@@ -143,6 +143,11 @@ body {
 .score-panel .restart {
   float: right;
   cursor: pointer;
+}
+
+.star {
+  color: #3a8592;
+  font-size: 2em;
 }
 
 /*

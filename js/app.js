@@ -23,7 +23,10 @@ const startButton = document.getElementsByClassName("start-game")[0]; //for star
 const reStartButton = document.getElementsByClassName("reStartGame")[0]; //For restart button at the end of game
 const timeMin = document.getElementsByClassName("min")[0]; //to access time in minute
 const timeSec = document.getElementsByClassName("sec")[0]; //to access time in minute
+const starColor = document.getElementsByClassName("star"); //to change stat rating
+
 let timeCounter; //setInterval variable for time calculation
+let starValue; //hold star value
 
 
 
@@ -168,6 +171,8 @@ function timeCalculate() {
         min++;
         sec = 0;
         timeMin.innerHTML = min;
+        //to change the number of star and its value
+        starRating(min);
     }
     // console.log(min + " min" + " and " + sec + " sec");
     timeSec.innerHTML = sec;
@@ -175,4 +180,30 @@ function timeCalculate() {
 
 function timeStop() {
     clearInterval(timeCounter);
+}
+
+function starRating(min) {
+    switch (min) {
+        case 1:
+            starValue = 5;
+            break;
+        case 2:
+            starValue = 4;
+            starColor[4].style.color = "#60b0be6b";
+            break;
+        case 3:
+            starValue = 3;
+            starColor[3].style.color = "#60b0be6b";
+            break;
+        case 4:
+            starValue = 2;
+            starColor[2].style.color = "#60b0be6b";
+            break;
+        case 5:
+            starValue = 1;
+            starColor[1].style.color = "#60b0be6b";
+            break;
+        default:
+            console.log("5 min time exeded");
+    }
 }
