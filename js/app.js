@@ -59,7 +59,6 @@ function startGame() {
         for (let j = 0; j < cards.length; j++) {
             hideCard(cards[j]); //hide all the fliped card
         }
-
         timeStart();
     }, 5000);
 }
@@ -68,9 +67,15 @@ function startGame() {
 reStartButton.addEventListener("click", function () {
     resetGame();
     endPopup.classList.add("hide-popup");
-    startGame();
+    startPopup.classList.remove("hide-popup");
+    unHideAllCard();
 });
 
+function unHideAllCard() {
+    for (let n = 0; n < cards.length; n++) {
+        cards[n].className="card match show"; //hide all the fliped card
+    }
+}
 
 /*When user click reset button, call resetGame fuction*/
 reset.addEventListener("click", resetGame);
@@ -108,12 +113,6 @@ function resetGame() {
     setEventforClick();
     startPopup.classList.remove("hide-popup");
     unHideAllCard();
-}
-
-function unHideAllCard() {
-    for (let n = 0; n < cards.length; n++) {
-        cards[n].className="card match show"; //hide all the fliped card
-    }
 }
 
 /* flipCard function to flip and show card */
