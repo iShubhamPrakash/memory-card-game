@@ -3,6 +3,9 @@
 
 It is a card game in which all of the cards are laid face down and two cards are flipped face up over each turn. The object of the game is to turn over pairs of matching cards.
 
+**Link to the game:**
+https://i-shubhamprakash.github.io/memory-card-game/
+
 ## How The Game Works
 
 The game board consists of **sixteen "cards"** arranged in a grid. The deck is made up of eight different pairs of cards, each with different symbols on one side. The cards are arranged randomly on the grid with the symbol face down.
@@ -35,5 +38,8 @@ The gameplay rules are very simple: Flip over two hidden cards at a time to loca
 ## SHUBHAM PRAKASH
 * *Email:* shubham.prakash2308@gmail.com
 * *LinkedIn:* https://www.linkedin.com/in/ishubhamprakash/
+
+### PLAY LIVE HERE:  
+https://i-shubhamprakash.github.io/memory-card-game/
 
 **Hope you will enjoy the game**
