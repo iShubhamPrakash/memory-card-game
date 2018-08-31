@@ -228,18 +228,17 @@ body {
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
-@keyframes bubble {
-  0% { height: 125px; width: 125px; }
-  10% { height: 125px; width: 125px; }
-  20% { height: 125px; width: 125px; }
-  30% { height: 125px; width: 125px; }
-  40% { height: 125px; width: 125px; }
-  50% { height: 250px; width: 250px; }
-  60% { height: 125px; width: 125px; }
-  70% { height: 125px; width: 125px; }
-  80% { height: 125px; width: 125px; }
-  90% { height: 125px; width: 125px; }
-  100% { height: 125px; width: 125px;}
+/* Pulse keyframe from https://codepen.io/olam/pen/zcqea */
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(35, 187, 214, 0.4);
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px rgba(30, 183, 194, 0.37);
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 rgba(34, 247, 147, 0.486);
+  }
 }
 
 .card.open {
@@ -256,9 +255,39 @@ body {
 
 .card.match {
  /* TODO: Add bubble animation */
+ animation: pulse 0.5s;
 }
 
 .card.wrong {
    /* Start the shake animation and make the animation last for 0.5 seconds */
    animation: shake 0.5s;
+}
+
+
+/************ For Responsiveness **********/
+@media only screen and (max-width: 700px) {
+	.score-panel {
+        width: 90%;
+    }
+
+    .deck {
+        width: 95%;
+        padding: 16px;
+        min-height: 100vw;
+    }
+
+    .deck .card {
+        width: 20vw;
+        height: 20vw;
+    }
+
+    .popup {
+      width:95%;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .score-panel {
+        font-size: 20px;
+    }
 }
