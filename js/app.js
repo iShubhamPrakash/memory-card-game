@@ -10,14 +10,21 @@ let cardList = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt", "fa-cu
 let openCard = []; //To store the open card list
 let moves = 0; //To store the no of moves
 let score = 0; //To store the score
+let sec = 0; //stores second value for time
+let min = 0; //stores minute value for time
+let previousCard; //stores the previously clicked card
+let currentCard; //stores the current clicked card
+
 const reset = document.querySelector(".restart"); //Stores RESET button information
 const cards = document.getElementsByClassName("card"); //Stores CARD element information
 const movesShow = document.getElementsByClassName("moves")[0]; //Stores MOVES display information
 const allCards = document.getElementsByClassName("card"); //Selects all elements with class Card
 const startButton = document.getElementsByClassName("start-game")[0]; //for start button
 const reStartButton = document.getElementsByClassName("reStartGame")[0]; //For restart button at the end of game
-let previousCard; //stores the previously clicked card 
-let currentCard; //stores the current clicked card
+const timeMin = document.getElementsByClassName("min")[0]; //to access time in minute
+const timeSec = document.getElementsByClassName("sec")[0]; //to access time in minute
+let timeCounter; //setInterval variable for time calculation
+
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976 to shuffle card when reset
@@ -71,7 +78,7 @@ function resetGame() {
         let cardChild = cards[i].children[0];
         cardChild.className = "fa" + " " + cardList[i];
     }
-
+    timeStop();
     score = 0; // Sets the score to 0
     moves = 0; // Sets the moves counter to 0
     movesShow.innerHTML = moves; //Display the updated move count
@@ -127,10 +134,8 @@ function flipCard() {
                     openCard.pop();
                     openCard.pop();
                 }, 500);
-
             }
         }
-
     }
     // console.log(openCard + "\n" + card.classList);
 }
@@ -143,7 +148,31 @@ function hideCard(c) {
     c.addEventListener("click", flipCard);
 }
 
+/* Function to increase move count */
 function incrementMoveCount() {
     moves++;
     movesShow.innerHTML = moves;
+}
+
+/* Function for calculating and displaying time */
+
+function timeStart() {
+    sec = 0;
+    min = 0;
+    timeCounter = setInterval(timeCalculate, 1000);
+}
+
+function timeCalculate() {
+    sec++;
+    if (sec == 60) {
+        min++;
+        sec = 0;
+        timeMin.innerHTML = min;
+    }
+    // console.log(min + " min" + " and " + sec + " sec");
+    timeSec.innerHTML = sec;
+}
+
+function timeStop() {
+    clearInterval(timeCounter);
 }
