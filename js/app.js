@@ -214,29 +214,29 @@ function timeReset() {
     timeSec.innerHTML = sec;
 }
 
-function starRating(min) {
-    switch (min) {
-        case 1:
+function starRating(moves) {
+    switch (moves) {
+        case 8:
             starValue = 5;
             break;
-        case 2:
+        case 12:
             starValue = 4;
             starColor[4].style.color = "#60b0be6b";
             break;
-        case 3:
+        case 15:
             starValue = 3;
             starColor[3].style.color = "#60b0be6b";
             break;
-        case 4:
+        case 17:
             starValue = 2;
             starColor[2].style.color = "#60b0be6b";
             break;
-        case 5:
+        case 20:
             starValue = 1;
             starColor[1].style.color = "#60b0be6b";
             break;
         default:
-            console.log("5 min time exeded");
+            console.log("many moves!!!");
     }
 }
 
