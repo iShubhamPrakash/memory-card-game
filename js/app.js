@@ -82,10 +82,12 @@ function resetGame() {
         cardChild.className = "fa" + " " + cardList[i];
     }
     timeStop();
+    timeReset();
     score = 0; // Sets the score to 0
     moves = 0; // Sets the moves counter to 0
     movesShow.innerHTML = moves; //Display the updated move count
     openCard = []; //Empty the openCard list
+
 
     for (let j = 0; j < cards.length; j++) {
         hideCard(cards[j]); //hide all the fliped card
@@ -180,6 +182,13 @@ function timeCalculate() {
 
 function timeStop() {
     clearInterval(timeCounter);
+}
+
+function timeReset() {
+    sec = 0;
+    min = 0;
+    timeMin.innerHTML = min;
+    timeSec.innerHTML = sec;
 }
 
 function starRating(min) {
