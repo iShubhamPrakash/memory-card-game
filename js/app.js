@@ -16,6 +16,7 @@ let currentCard; //stores the current clicked card
 let timeCounter; //setInterval variable for time calculation
 let starValue = 5; //hold star value
 
+
 const reset = document.querySelector(".restart"); //Stores RESET button information
 const cards = document.getElementsByClassName("card"); //Stores CARD element information
 const movesShow = document.getElementsByClassName("moves")[0]; //Stores MOVES display information
@@ -30,10 +31,6 @@ const endPopup = document.getElementsByClassName("end-popup")[0];
 const showStar = document.getElementsByClassName("show-star")[0];
 const timeShow = document.getElementsByClassName("time-show")[0];
 const scoreShow = document.getElementsByClassName("score-show")[0];
-
-
-
-
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976 to shuffle card when reset
@@ -54,22 +51,31 @@ function shuffle(array) {
 
 
 /*Start of the game */
-startButton.addEventListener("click", function () {
-    const popup1 = document.getElementsByClassName("start-popup")[0];
-    popup1.classList.add("hide-popup");
-});
+startButton.addEventListener("click", startGame);
+
+function startGame() {
+    startPopup.classList.add("hide-popup");
+    setTimeout(function () {
+        for (let j = 0; j < cards.length; j++) {
+            hideCard(cards[j]); //hide all the fliped card
+        }
+
+        timeStart();
+    }, 5000);
+}
 
 /*Restarting of game */
 reStartButton.addEventListener("click", function () {
-    const popup2 = document.getElementsByClassName("end-popup")[0];
-    popup2.classList.add("hide-popup");
+    resetGame();
+    endPopup.classList.add("hide-popup");
+    startGame();
 });
 
 
 /*When user click reset button, call resetGame fuction*/
 reset.addEventListener("click", resetGame);
 
-/* Setting event listener for click to every cards */
+/* Setting event listener to listen click on every cards */
 setEventforClick();
 
 function setEventforClick() {
@@ -79,14 +85,6 @@ function setEventforClick() {
 }
 /* Function to resets the game by setting score, time, moves to zero and reshuffeling the cards */
 function resetGame() {
-
-    cardList = shuffle(cardList); // To shuffle the card list
-
-    /* Add classes to the elements from shuffled card list to display the cards on the page */
-    for (let i = 0; i < cardList.length; i++) {
-        let cardChild = cards[i].children[0];
-        cardChild.className = "fa" + " " + cardList[i];
-    }
     timeStop();
     timeReset();
     score = 0; // Sets the score to 0
@@ -95,14 +93,27 @@ function resetGame() {
     movesShow.innerHTML = moves; //Display the updated move count
     openCard = []; //Empty the openCard list
 
+    cardList = shuffle(cardList); // To shuffle the card list
+
+    /* Add classes to the elements from shuffled card list to display the cards on the page */
+    for (let i = 0; i < cardList.length; i++) {
+        let cardChild = cards[i].children[0];
+        cardChild.className = "fa" + " " + cardList[i];
+    }
+
     for (let k = 0; k < starColor.length; k++) {
         starColor[k].style.color = "#3a8592"; //Set the color of star back to blue
     }
 
-    for (let j = 0; j < cards.length; j++) {
-        hideCard(cards[j]); //hide all the fliped card
-    }
     setEventforClick();
+    startPopup.classList.remove("hide-popup");
+    unHideAllCard();
+}
+
+function unHideAllCard() {
+    for (let n = 0; n < cards.length; n++) {
+        cards[n].className="card match show"; //hide all the fliped card
+    }
 }
 
 /* flipCard function to flip and show card */
@@ -175,8 +186,8 @@ function incrementMoveCount() {
 /* Function for calculating and displaying time */
 
 function timeStart() {
-    sec = 0;
-    min = 0;
+    // sec = 0;
+    // min = 0;
     timeCounter = setInterval(timeCalculate, 1000);
 }
 
@@ -231,10 +242,6 @@ function starRating(min) {
 }
 
 
-
-/********************************** */
-
-
 function stopGame() {
     timeStop();
     scoreCalulate();
@@ -242,7 +249,6 @@ function stopGame() {
     setTimeout(function () {
         endPopup.classList.remove("hide-popup");
     }, 1000);
-    
 
     for (let z = 0; z < starValue; z++) {
         showStar.appendChild(document.createElement("i"));
@@ -254,5 +260,5 @@ function stopGame() {
 }
 
 function scoreCalulate() {
-    score = 1000 / (min + moves);
+    score = Math.floor(1000 / (min + moves)); //to get the score as an integer value
 }
