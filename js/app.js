@@ -180,6 +180,8 @@ function hideCard(c) {
 function incrementMoveCount() {
     moves++;
     movesShow.innerHTML = moves;
+    //to change the number of star and its value
+    starRating(moves);
 }
 
 /* Function for calculating and displaying time */
@@ -196,8 +198,6 @@ function timeCalculate() {
         min++;
         sec = 0;
         timeMin.innerHTML = min;
-        //to change the number of star and its value
-        starRating(min);
     }
     // console.log(min + " min" + " and " + sec + " sec");
     timeSec.innerHTML = sec;
