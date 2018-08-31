@@ -85,9 +85,13 @@ function resetGame() {
     timeReset();
     score = 0; // Sets the score to 0
     moves = 0; // Sets the moves counter to 0
+    starRating = 5; //Set start rating back to 5
     movesShow.innerHTML = moves; //Display the updated move count
     openCard = []; //Empty the openCard list
 
+    for (let k = 0; k < starColor.length; k++) {
+        starColor[k].style.color = "#3a8592"; //Set the color of star back to blue
+    }
 
     for (let j = 0; j < cards.length; j++) {
         hideCard(cards[j]); //hide all the fliped card
