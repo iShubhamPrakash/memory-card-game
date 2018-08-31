@@ -1,7 +1,7 @@
 /**************************************************************************************
  * Shubham Prakash
  * Email: shubham.prakash2308@gmail.com
- * LinkedIn: https: //www.linkedin.com/in/ishubhamprakash/
+ * LinkedIn: https://www.linkedin.com/in/ishubhamprakash/
  **************************************************************************************/
 
 /* A list that holds all of the cards */
