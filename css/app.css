@@ -229,7 +229,7 @@ body {
 }
 
 /* Pulse keyframe from https://codepen.io/olam/pen/zcqea */
-@-webkit-keyframes pulse {
+@keyframes pulse {
   0% {
     -webkit-box-shadow: 0 0 0 0 rgba(35, 187, 214, 0.4);
   }
