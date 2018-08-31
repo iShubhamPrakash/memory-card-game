@@ -90,6 +90,10 @@ body {
   padding: 1.5em;
 }
 
+.show-star {
+  text-align: center;
+}
+
 .hide-popup {
   display: none;
 }

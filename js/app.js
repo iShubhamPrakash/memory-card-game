@@ -6,7 +6,6 @@
 
 /* A list that holds all of the cards */
 let cardList = ["fa-diamond", "fa-paper-plane-o", "fa-anchor", "fa-bolt", "fa-cube", "fa-anchor", "fa-leaf", "fa-bicycle", "fa-diamond", "fa-bomb", "fa-leaf", "fa-bomb", "fa-bolt", "fa-bicycle", "fa-paper-plane-o", "fa-cube"]
-
 let openCard = []; //To store the open card list
 let moves = 0; //To store the no of moves
 let score = 0; //To store the score
@@ -14,6 +13,8 @@ let sec = 0; //stores second value for time
 let min = 0; //stores minute value for time
 let previousCard; //stores the previously clicked card
 let currentCard; //stores the current clicked card
+let timeCounter; //setInterval variable for time calculation
+let starValue = 5; //hold star value
 
 const reset = document.querySelector(".restart"); //Stores RESET button information
 const cards = document.getElementsByClassName("card"); //Stores CARD element information
@@ -24,9 +25,14 @@ const reStartButton = document.getElementsByClassName("reStartGame")[0]; //For r
 const timeMin = document.getElementsByClassName("min")[0]; //to access time in minute
 const timeSec = document.getElementsByClassName("sec")[0]; //to access time in minute
 const starColor = document.getElementsByClassName("star"); //to change stat rating
+const startPopup = document.getElementsByClassName("start-popup")[0];
+const endPopup = document.getElementsByClassName("end-popup")[0];
+const showStar = document.getElementsByClassName("show-star")[0];
+const timeShow = document.getElementsByClassName("time-show")[0];
+const scoreShow = document.getElementsByClassName("score-show")[0];
 
-let timeCounter; //setInterval variable for time calculation
-let starValue; //hold star value
+
+
 
 
 
@@ -85,7 +91,7 @@ function resetGame() {
     timeReset();
     score = 0; // Sets the score to 0
     moves = 0; // Sets the moves counter to 0
-    starRating = 5; //Set start rating back to 5
+    starValue = 5; //Set start value back to 5
     movesShow.innerHTML = moves; //Display the updated move count
     openCard = []; //Empty the openCard list
 
@@ -146,9 +152,12 @@ function flipCard() {
             }
         }
     }
-    // console.log(openCard + "\n" + card.classList);
-}
 
+    // Game Over
+    if (openCard.length == 16) {
+        stopGame();
+    }
+}
 
 
 /*hideCard Function to flip back and hide the card */
@@ -219,4 +228,31 @@ function starRating(min) {
         default:
             console.log("5 min time exeded");
     }
+}
+
+
+
+/********************************** */
+
+
+function stopGame() {
+    timeStop();
+    scoreCalulate();
+    console.log("Game Over");
+    setTimeout(function () {
+        endPopup.classList.remove("hide-popup");
+    }, 1000);
+    
+
+    for (let z = 0; z < starValue; z++) {
+        showStar.appendChild(document.createElement("i"));
+        showStar.children[z].className = "fa fa-star";
+    }
+
+    timeShow.innerHTML = min + " min " + sec+" sec";
+    scoreShow.innerHTML = score;
+}
+
+function scoreCalulate() {
+    score = 1000 / (min + moves);
 }

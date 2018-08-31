@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <div class="popup start-popup">
+  <div class="popup start-popup hide-popup">
     <div class="game-start">
       <h1 class="heading">MEMORY CARD GAME</h1>
       <h2 class="sub-heading">- Test your memory -</h2>
@@ -31,11 +31,13 @@
     </div>
   </div>
 
-  <div class="popup end-popup">
+  <div class="popup end-popup hide-popup">
     <div class="game-over">
       <h1 class="heading">Congratulations!</h1>
       <h2 class="sub-heading"><i class="fa fa-trophy"> </i> &nbsp You Won!!</h2>
-      <h2 class="sub-heading"><i class="fa fa-star"> </i> &nbsp Your score:</h2>
+      <div class="show-star"></div>
+      <h2>Time: <span class="time-show"></span></h2>
+      <h2>Your score: <span class="score-show"></span></h2>
       <button class="myButton reStartGame">Restart the game</button>
     </div>
   </div>
