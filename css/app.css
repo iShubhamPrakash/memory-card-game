@@ -17,7 +17,6 @@ body {
 }
 
 body {
-  /* background-color: #17181a; */
   background: #fffbfb url('../img/geometry2.png');
   /* Background pattern from Subtle Patterns */
   font-family: 'Coda', cursive;
@@ -77,8 +76,6 @@ body {
 .game-over,
 .game-start {
   width: 65%;
-  margin-left: auto;
-  margin-right: auto;
   margin: 5% auto;
   font-size: 1.2em;
   border-radius: 10px 10px 10px 10px;
@@ -174,7 +171,7 @@ body {
   width: 125px;
   background: #2e3d49;
   font-size: 0;
-  color: #ffffff;
+  color: #fff;
   border-radius: 8px;
   cursor: pointer;
   display: flex;
@@ -228,16 +225,21 @@ body {
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
-/* Pulse keyframe from https://codepen.io/olam/pen/zcqea */
 @keyframes pulse {
   0% {
-    -webkit-box-shadow: 0 0 0 0 rgba(35, 187, 214, 0.4);
+    box-shadow: 0 0 0 0 rgba(35, 187, 214, 0.4);
   }
+  30% {
+    box-shadow: 0 0 0 10px rgba(30, 183, 194, 0.37);
+}
+50% {
+  box-shadow: 0 0 0 20px rgba(30, 183, 194, 0.37);
+}
   70% {
-      -webkit-box-shadow: 0 0 0 10px rgba(30, 183, 194, 0.37);
+      box-shadow: 0 0 0 10px rgba(30, 183, 194, 0.37);
   }
   100% {
-      -webkit-box-shadow: 0 0 0 0 rgba(34, 247, 147, 0.486);
+      box-shadow: 0 0 0 0 rgba(34, 247, 147, 0.486);
   }
 }
 
