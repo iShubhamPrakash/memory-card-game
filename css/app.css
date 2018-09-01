@@ -149,6 +149,10 @@ body {
   font-size: 2em;
 }
 
+.move-time-container {
+  display: inline;
+}
+
 /*
  * Styles for the deck of cards
  */
@@ -266,11 +270,16 @@ body {
 }
 
 /************ For Responsiveness **********/
+
 @media only screen and (max-width: 700px) {
 	.score-panel {
         width: 90%;
     }
 
+    .move-time-container {
+      display:flex;
+      flex-wrap: wrap;
+    }
     .deck {
         width: 95%;
         padding: 16px;
@@ -282,8 +291,36 @@ body {
         height: 20vw;
     }
 
-    .popup {
-      width:95%;
+    .stars {
+     display:flex;
+     flex-wrap: wrap;
+    }
+
+    .instruction-container {
+      padding:1em;
+    }
+
+    header {
+      padding:1.5em;
+    }
+    .heading {
+      font-size: 2.5em;
+    }
+
+    .game-start,
+    .game-over {
+    width:95%;
+    }
+
+    .game-start >.heading,
+    .game-over >.heading {
+      font-size: 2em;
+      margin:0;
+    }
+
+    .game-start >.sub-heading,
+    .game-over >.sub-heading {
+      font-size: 1em;
     }
 }
 
