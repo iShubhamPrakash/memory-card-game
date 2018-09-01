@@ -202,7 +202,7 @@ body {
 .card.wrong {
   cursor: default;
   background: #ee0707;
-  font-size: 33px; 
+  font-size: 33px;
 }
 
 .footer {
@@ -211,121 +211,156 @@ body {
   padding: 1.5em;
 }
 
-
 /*********************************ANIMATION ON ELEMENTS ***********************************/
-
 /*shake keyframe from examples at w3schools.com */
 @keyframes shake {
-0% { transform: translate(1px, 1px) rotate(0deg); }
-10% { transform: translate(-1px, -2px) rotate(-1deg); }
-20% { transform: translate(-3px, 0px) rotate(1deg); }
-30% { transform: translate(3px, 2px) rotate(0deg); }
-40% { transform: translate(1px, -1px) rotate(1deg); }
-50% { transform: translate(-1px, 2px) rotate(-1deg); }
-60% { transform: translate(-3px, 1px) rotate(0deg); }
-70% { transform: translate(3px, 1px) rotate(-1deg); }
-80% { transform: translate(-1px, -1px) rotate(1deg); }
-90% { transform: translate(1px, 2px) rotate(0deg); }
-100% { transform: translate(1px, -2px) rotate(-1deg); }
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
 }
 
 @keyframes pulse {
-0% {
+  0% {
     box-shadow: 0 0 0 0 rgba(35, 187, 214, 0.4);
   }
-30% {
+
+  30% {
     box-shadow: 0 0 0 10px rgba(30, 183, 194, 0.37);
-}
-50% {
-  box-shadow: 0 0 0 20px rgba(30, 183, 194, 0.37);
-}
-70% {
-      box-shadow: 0 0 0 10px rgba(30, 183, 194, 0.37);
   }
-100% {
-      box-shadow: 0 0 0 0 rgba(34, 247, 147, 0.486);
+
+  50% {
+    box-shadow: 0 0 0 20px rgba(30, 183, 194, 0.37);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(30, 183, 194, 0.37);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 247, 147, 0.486);
   }
 }
 
 .card.open {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
-  transition:  transform 0.5s;
+  transition: transform 0.5s;
 }
 
 .card.show {
   -webkit-transform: rotateY(180deg);
   transform: rotateY(180deg);
-  transition:  transform 0.5s;
+  transition: transform 0.5s;
 }
 
 .card.match {
- /* TODO: Add bubble animation */
- animation: pulse 0.5s;
+  /* TODO: Add bubble animation */
+  animation: pulse 0.5s;
 }
 
 .card.wrong {
-   /* Start the shake animation and make the animation last for 0.5 seconds */
-   animation: shake 0.5s;
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 0.5s;
 }
 
 /************ For Responsiveness **********/
-
 @media only screen and (max-width: 700px) {
-	.score-panel {
-        width: 90%;
-    }
+  .score-panel {
+    width: 90%;
+  }
 
-    .move-time-container {
-      display:flex;
-      flex-wrap: wrap;
-    }
-    .deck {
-        width: 95%;
-        padding: 16px;
-        min-height: 100vw;
-    }
+  .move-time-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-    .deck .card {
-        width: 20vw;
-        height: 20vw;
-    }
+  .deck {
+    width: 95%;
+    padding: 16px;
+    min-height: 100vw;
+  }
 
-    .stars {
-     display:flex;
-     flex-wrap: wrap;
-    }
+  .deck .card {
+    width: 20vw;
+    height: 20vw;
+  }
 
-    .instruction-container {
-      padding:1em;
-    }
+  .stars {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-    header {
-      padding:1.5em;
-    }
-    .heading {
-      font-size: 2.5em;
-    }
+  .instruction-container {
+    padding: 1em;
+  }
 
-    .game-start,
-    .game-over {
-    width:95%;
-    }
+  header {
+    padding: 1.5em;
+  }
 
-    .game-start >.heading,
-    .game-over >.heading {
-      font-size: 2em;
-      margin:0;
-    }
+  .heading {
+    font-size: 2.5em;
+  }
 
-    .game-start >.sub-heading,
-    .game-over >.sub-heading {
-      font-size: 1em;
-    }
+  .game-start,
+  .game-over {
+    width: 95%;
+  }
+
+  .game-start>.heading,
+  .game-over>.heading {
+    font-size: 2em;
+    margin: 0;
+  }
+
+  .game-start>.sub-heading,
+  .game-over>.sub-heading {
+    font-size: 1em;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
-    .score-panel {
-        font-size: 20px;
-    }
+  .score-panel {
+    font-size: 20px;
+  }
 }

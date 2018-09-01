@@ -73,7 +73,7 @@ reStartButton.addEventListener("click", function () {
 
 function unHideAllCard() {
     for (let n = 0; n < cards.length; n++) {
-        cards[n].className="card match show"; //hide all the fliped card
+        cards[n].className = "card match show"; //hide all the fliped card
     }
 }
 
@@ -254,7 +254,7 @@ function stopGame() {
         showStar.children[z].className = "fa fa-star";
     }
 
-    timeShow.innerHTML = min + " min " + sec+" sec";
+    timeShow.innerHTML = min + " min " + sec + " sec";
     scoreShow.innerHTML = score;
 }
 
