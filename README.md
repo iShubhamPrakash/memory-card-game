@@ -33,13 +33,13 @@ The gameplay rules are very simple: Flip over two hidden cards at a time to loca
 * CSS
 * HTML
 
+### PLAY LIVE HERE:  
+https://i-shubhamprakash.github.io/memory-card-game/
+
 # Author:
 
 ## SHUBHAM PRAKASH
 * *Email:* shubham.prakash2308@gmail.com
 * *LinkedIn:* https://www.linkedin.com/in/ishubhamprakash/
-
-### PLAY LIVE HERE:  
-https://i-shubhamprakash.github.io/memory-card-game/
 
 **Hope you will enjoy the game**
