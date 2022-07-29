@@ -12,6 +12,15 @@ The game board consists of **sixteen "cards"** arranged in a grid. The deck is m
 
 The gameplay rules are very simple: Flip over two hidden cards at a time to locate the ones that match!
 
+<img width="1499" alt="Screenshot 2022-07-30 at 2 27 09 AM" src="https://user-images.githubusercontent.com/28767301/181842053-007c6529-39bf-4c8f-a252-de86f935a80d.png">
+
+<img width="1499" alt="Screenshot 2022-07-30 at 2 27 23 AM" src="https://user-images.githubusercontent.com/28767301/181842060-2dec3ed2-573a-497b-90ce-8221e06ccfcc.png">
+
+<img width="1499" alt="Screenshot 2022-07-30 at 2 27 39 AM" src="https://user-images.githubusercontent.com/28767301/181842082-f10c9118-e33b-4dd8-9a7a-7a6fcacbd00a.png">
+
+<img width="1499" alt="Screenshot 2022-07-30 at 2 27 43 AM" src="https://user-images.githubusercontent.com/28767301/181842087-f76cdf03-93ee-472d-a537-a7edf3f0937b.png">
+
+
 ### - Test your memory -
 
 * You have 5 seconds to remember the positions of different cards.
